@@ -1,0 +1,6 @@
+# Request: the mode the caller wants to switch to
+#   0 = IDLE, 1 = COLLECT, 2 = TRAIN, 3 = EXECUTE, 4 = CLEARDATA
+int64 reqmode
+---
+# Response: the mode the node actually switched to
+int64 setmode

@@ -1,0 +1,5 @@
+# Python dependencies for the imitation-learning nodes.
+# PyTorch is installed from the CPU wheel index (see Dockerfile). For a CUDA
+# build, install the matching torch wheel instead and run with device:=cuda.
+torch>=2.0,<2.4
+numpy>=1.24,<2.0

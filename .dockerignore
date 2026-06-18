@@ -1,0 +1,8 @@
+.git
+ros2_ws/build
+ros2_ws/install
+ros2_ws/log
+**/__pycache__
+**/*.pyc
+ros2_ws/src/imitation_learning/data/**/trajectory_*.json
+ros2_ws/src/imitation_learning/models/**/*.pt

@@ -1,0 +1,13 @@
+# Colcon build artifacts
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Recorded data and trained models
+ros2_ws/src/imitation_learning/data/**/trajectory_*.json
+ros2_ws/src/imitation_learning/models/**/*.pt
+~/il_data/

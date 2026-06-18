@@ -1,0 +1,32 @@
+# Convenience compose file for running the simulation with GUI (Gazebo / RViz)
+# forwarded to the host X server.
+#
+#   xhost +local:root        # allow the container to use your X server
+#   docker compose build
+#   docker compose run --rm il
+#
+# Inside the container, follow the README "Running" section.
+services:
+  il:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: imitation-learning-tb3:humble
+    container_name: il_tb3
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      - TURTLEBOT3_MODEL=waffle
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ./ros2_ws/src:/ros2_ws/src:rw   # live-edit source from the host
+      - il_data:/root/il_data           # persist recorded data + trained models
+    network_mode: host
+    stdin_open: true
+    tty: true
+    command: bash
+
+volumes:
+  il_data:
